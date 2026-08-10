@@ -1,0 +1,6 @@
+# WSL / Windows -metadata
+*:Zone.Identifier
+
+# Käyttöjärjestelmän roskat
+.DS_Store
+Thumbs.db

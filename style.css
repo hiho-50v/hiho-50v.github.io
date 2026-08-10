@@ -1,0 +1,187 @@
+:root {
+  --hiho-musta: #000414;
+  --hiho-gold: #F4C142;
+  --archival-gold: #C9A227;
+  --ig-pink: #FF69B4;
+  --sini-blue: #1450C4;
+  --ink: #1a1a1a;
+  --paper: #ffffff;
+  --muted: #666666;
+  --max-w: 700px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, "Liberation Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 19px;
+  line-height: 1.5;
+}
+
+.page {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3 {
+  font-weight: 800;
+  line-height: 1.15;
+  margin: 0.9em 0 0.4em;
+}
+h1 { font-size: 2rem; }
+h2 { font-size: 1.5rem; }
+h2.h2-green { color: #1F7A1F; }
+h2.h2-brown { color: #8A6D1F; }
+
+p { margin: 0 0 1em; }
+
+a { color: #1155CC; }
+
+/* --- Title / cover --- */
+.cover { text-align: center; padding-top: 8px; }
+.cover img.logo { width: 140px; margin: 0 auto 18px; }
+.cover h1 { font-size: 2.1rem; margin: 0 0 6px; }
+.cover .years { color: var(--muted); font-size: 1.1rem; margin: 0 0 2px; }
+.cover .subtitle { color: #888; font-style: italic; margin: 0 0 20px; }
+.cover hr { border: none; border-top: 1px solid #ccc; margin: 0 0 24px; }
+
+/* --- Table of contents --- */
+.toc { margin: 0 0 40px; }
+.toc h2 { font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); margin-bottom: 14px; }
+.toc ol { list-style: none; margin: 0; padding: 0; }
+.toc li { margin: 0 0 10px; }
+.toc a { text-decoration: none; font-weight: 700; color: var(--ink); display: block; padding: 10px 12px; background: #f4f4f4; border-radius: 8px; }
+.toc a:active { background: #eaeaea; }
+
+/* --- Website archive quotes (HIHO musta, full-bleed) --- */
+.archivebox {
+  background: var(--hiho-musta);
+  color: #ffffff;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  padding: 18px 20px;
+  margin: 0 -20px 1.2em;
+}
+.archivebox h3 { color: var(--hiho-gold); font-size: 1.2rem; margin: 0 0 0.5em; }
+.archivebox h4 { color: var(--hiho-gold); font-size: 1.05rem; margin: 1em 0 0.4em; }
+.archivebox p { margin: 0 0 0.8em; }
+.archivebox .a-foot { font-size: 0.85rem; font-style: italic; color: #cfcfcf; }
+.archivebox .a-sig { text-align: right; font-style: italic; }
+.archive-lead { font-style: italic; color: var(--muted); margin: 0 0 0.6em; }
+
+/* --- 45v historiikki quotes (gold) --- */
+.q-archival {
+  margin: 0 0 1.2em;
+  padding: 4px 0 4px 16px;
+  border-left: 4px solid var(--archival-gold);
+  font-style: italic;
+  color: #444;
+}
+
+/* --- Instagram quotes (hot pink) --- */
+.q-ig {
+  margin: 0 0 0;
+  padding: 12px 14px;
+  border-left: 5px solid var(--ig-pink);
+  background: #f4f4f6;
+  color: var(--ink);
+}
+.q-ig-cap { color: var(--ig-pink); font-weight: 700; font-size: 0.95rem; margin: 6px 0 1.2em; }
+
+/* --- Press quotes --- */
+.q-press {
+  margin: 0 0 0;
+  padding: 10px 0;
+  border-top: 3px double #11226C;
+  border-bottom: 3px double #11226C;
+  font-style: italic;
+}
+.q-press-cap { font-weight: 700; color: #11226C; font-size: 0.9rem; margin: 6px 0 1.2em; }
+
+/* --- Correction / fix boxes --- */
+.q-fix {
+  margin: 0 0 0;
+  padding: 12px 14px;
+  border-left: 5px solid #B23A3A;
+  background: #fbeaea;
+  color: #5C1A1A;
+  font-style: italic;
+}
+.q-fix-cap { font-weight: 700; color: #B23A3A; font-size: 0.9rem; margin: 6px 0 1.2em; }
+
+/* --- Sini Viiva --- */
+.sini { color: var(--sini-blue); }
+.sini-sig { color: var(--sini-blue); font-style: italic; text-align: right; margin-top: -0.6em; }
+
+/* --- Registry / fact table --- */
+table.regbox { width: 100%; border-collapse: collapse; margin: 0 0 0.4em; font-size: 0.95rem; }
+table.regbox th, table.regbox td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
+table.regbox th { background: #eee; width: 40%; }
+.regbox-cap { font-size: 0.85rem; font-weight: 700; color: #555; margin: 0 0 1.2em; }
+
+/* --- TODO placeholder --- */
+.todo { background: #FFF3CD; border-left: 5px solid #E0B84C; color: #7A5B00; font-weight: 700; font-style: italic; padding: 10px 14px; }
+
+/* --- Bullet lists --- */
+ul.bullets { list-style: none; padding: 0; margin: 0 0 1.2em; }
+ul.bullets li { padding-left: 1.8em; position: relative; margin-bottom: 0.5em; }
+ul.bullets-m li::before { content: "🐒"; position: absolute; left: 0; }
+ul.bullets-s li::before { content: "🐑"; position: absolute; left: 0; }
+ul.bullets-h li::before { content: "🏒"; position: absolute; left: 0; }
+
+/* --- Images / figures --- */
+figure { margin: 0 0 1.4em; }
+figure img { border-radius: 4px; }
+figcaption { font-size: 0.85rem; font-style: italic; color: var(--muted); text-align: center; margin-top: 6px; }
+figure a { display: block; }
+
+/* --- CTA button --- */
+.cta-button {
+  display: block;
+  text-align: center;
+  background: var(--hiho-gold);
+  color: #1a1a1a;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 14px 16px;
+  border: 3px solid #1a1a1a;
+  margin: 0 0 1.4em;
+}
+
+/* --- Chapter nav (prev/next) --- */
+.chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 48px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+  font-size: 0.9rem;
+}
+.chapter-nav a { text-decoration: none; font-weight: 700; }
+.chapter-nav .to-toc { text-align: center; flex: 1; }
+
+/* --- Closing black page --- */
+.closing {
+  background: var(--hiho-musta);
+  color: #fff;
+  text-align: center;
+  padding: 60px 24px;
+  margin: 40px -20px -80px;
+}
+.closing img { width: 160px; margin: 0 auto 30px; }
+.closing p { font-style: italic; font-size: 0.95rem; max-width: 420px; margin: 0 auto 14px; }
+.closing a { color: var(--hiho-gold); font-weight: 700; }
+
+@media (min-width: 720px) {
+  body { font-size: 20px; }
+  .archivebox { margin-left: -32px; margin-right: -32px; padding-left: 32px; padding-right: 32px; }
+  .closing { margin-left: -32px; margin-right: -32px; }
+}
