@@ -12,10 +12,16 @@
 
 * { box-sizing: border-box; }
 
-html { -webkit-text-size-adjust: 100%; }
+/* Estä vaakasuuntainen ylivuoto (esim. off-canvas-valikko) — sivu pysyy
+   mobiilissa paikallaan sivusuunnassa. */
+html { -webkit-text-size-adjust: 100%; overflow-x: hidden; }
 
 body {
   margin: 0;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
   background: var(--paper);
   color: var(--ink);
   font-family: -apple-system, "Liberation Sans", "Helvetica Neue", Arial, sans-serif;
