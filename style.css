@@ -180,6 +180,40 @@ figure a { display: block; }
 .closing p { font-style: italic; font-size: 0.95rem; max-width: 420px; margin: 0 auto 14px; }
 .closing a { color: var(--hiho-gold); font-weight: 700; }
 
+/* --- Instagram-tyylinen kortti (etusivu) --- */
+.ig-post {
+  max-width: 468px;
+  margin: 0 auto 40px;
+  border: 1px solid #dbdbdb;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #262626;
+}
+.ig-post .ig-head { display: flex; align-items: center; gap: 10px; padding: 10px 14px; }
+.ig-post .ig-avatar {
+  width: 34px; height: 34px; flex: 0 0 auto;
+  border-radius: 50%; overflow: hidden; background: #000;
+  border: 1px solid #dbdbdb;
+  display: flex; align-items: center; justify-content: center;
+}
+.ig-post .ig-avatar img { width: 78%; height: 78%; object-fit: contain; }
+.ig-post .ig-user { font-weight: 600; color: #262626; }
+.ig-post .ig-more { margin-left: auto; color: #262626; font-weight: 700; letter-spacing: 1px; }
+.ig-post .ig-photo { width: 100%; display: block; }
+.ig-post .ig-actions { display: flex; align-items: center; gap: 12px; padding: 10px 14px 6px; color: #262626; }
+.ig-post .ig-actions svg { width: 26px; height: 26px; display: block; }
+.ig-post .ig-count { font-weight: 600; margin-left: -6px; }
+.ig-post .ig-actions .ig-save { margin-left: auto; }
+.ig-post .ig-likers { display: flex; align-items: center; gap: 8px; padding: 0 14px 6px; }
+.ig-post .ig-likers-pics { height: 20px; width: auto; display: block; border-radius: 0; }
+.ig-post .ig-liker-name { font-weight: 600; }
+.ig-post .ig-caption { padding: 0 14px 14px; color: #262626; }
+.ig-post .ig-caption .ig-user { margin-right: 6px; }
+.ig-post .ig-tags { color: #00376b; }
+
 @media (min-width: 720px) {
   body { font-size: 20px; }
   .archivebox { margin-left: -32px; margin-right: -32px; padding-left: 32px; padding-right: 32px; }
