@@ -158,6 +158,13 @@ const igCards =
     caption: 'Kotivoitto Koulukadulla kevyessä lumisateessa. Linköpingin PM-kisat lähestyvät (NSC 1997)',
   });
 
+// Alkusanat etusivulla: ensimmäinen kappale, sitten instapostaukset, sitten loput tekstistä.
+const fwBody = foreword ? foreword.bodyHtml : '';
+const fwCut = fwBody.indexOf('</p>');
+const forewordWithPosts = fwCut >= 0
+  ? fwBody.slice(0, fwCut + 4) + '\n' + igCards + '\n' + fwBody.slice(fwCut + 4)
+  : igCards + '\n' + fwBody;
+
 const indexHtml = HEAD('Etusivu') + `
 <div class="cover">
   <img class="logo" src="images/hiho_h_logo_transparent.png" alt="HIHO">
@@ -166,8 +173,7 @@ const indexHtml = HEAD('Etusivu') + `
   <p class="subtitle">Historiikki</p>
   <hr>
 </div>
-${igCards}
-${foreword ? foreword.bodyHtml : ''}
+${forewordWithPosts}
 ${tocHtml}
 ` + TAIL;
 fs.writeFileSync(path.join(OUT_DIR, 'index.html'), indexHtml);
