@@ -59,12 +59,29 @@ const navHtml = `
   </div>
 </nav>`;
 
-const HEAD = (title) => `<!doctype html>
+const BASE = 'https://hiho-50v.github.io/';
+const OG_DESC = 'Hiki-Hockeyn 50-vuotishistoriikki – Instagram-postauksia, luvut ja tarinat.';
+const HEAD = (title, pagePath = '') => `<!doctype html>
 <html lang="fi">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${title} — Hiki-Hockey 50 vuotta</title>
+<meta name="description" content="${OG_DESC}">
+<link rel="icon" type="image/png" href="images/hiho_h_logo_transparent.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Hiki-Hockey 50 vuotta">
+<meta property="og:title" content="${title} — Hiki-Hockey 50 vuotta">
+<meta property="og:description" content="${OG_DESC}">
+<meta property="og:image" content="${BASE}images/og_image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="${BASE}${pagePath}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${title} — Hiki-Hockey 50 vuotta">
+<meta name="twitter:description" content="${OG_DESC}">
+<meta name="twitter:image" content="${BASE}images/og_image.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -178,7 +195,7 @@ for (let idx = 0; idx < tocChapters.length; idx++) {
   }
 
   const bodyWithToc = ch.bodyHtml.replace('<!--TOC-PLACEHOLDER-->', tocHtml);
-  const html = HEAD(ch.title) + `<h1 class="chapter-title" style="display:none">${ch.title}</h1>\n${bodyWithToc}\n${closing}\n${nav}\n` + TAIL;
+  const html = HEAD(ch.title, ch.slug) + `<h1 class="chapter-title" style="display:none">${ch.title}</h1>\n${bodyWithToc}\n${closing}\n${nav}\n` + TAIL;
   fs.writeFileSync(path.join(OUT_DIR, ch.slug), html);
 }
 
