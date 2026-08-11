@@ -61,6 +61,41 @@ a { color: #1155CC; }
 .toc a { text-decoration: none; font-weight: 700; color: var(--ink); display: block; padding: 10px 12px; background: #f4f4f4; border-radius: 8px; }
 .toc a:active { background: #eaeaea; }
 
+/* --- Hampurilaisvalikko / globaali sivunavigaatio --- */
+.nav-burger {
+  position: fixed; top: 12px; right: 12px; z-index: 70;
+  width: 44px; height: 44px; border-radius: 10px;
+  background: rgba(255, 255, 255, 0.92); border: 1px solid #dbdbdb;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.14);
+  display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px;
+  cursor: pointer; -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px);
+}
+.nav-burger span { display: block; width: 22px; height: 2px; background: #262626; border-radius: 2px; transition: transform .25s, opacity .2s; }
+.nav-overlay {
+  position: fixed; inset: 0; z-index: 60; background: rgba(0, 0, 0, 0.38);
+  opacity: 0; pointer-events: none; transition: opacity .25s; cursor: pointer;
+}
+.site-nav {
+  position: fixed; top: 0; right: 0; z-index: 65;
+  width: 310px; max-width: 85vw; height: 100%;
+  background: #fff; border-left: 1px solid #dbdbdb; box-shadow: -6px 0 22px rgba(0, 0, 0, 0.18);
+  transform: translateX(100%); transition: transform .28s ease; overflow-y: auto;
+}
+.nav-toggle:checked ~ .site-nav { transform: translateX(0); }
+.nav-toggle:checked ~ .nav-overlay { opacity: 1; pointer-events: auto; }
+.nav-toggle:checked ~ .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle:checked ~ .nav-burger span:nth-child(2) { opacity: 0; }
+.nav-toggle:checked ~ .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.site-nav-inner { padding: 64px 20px 40px; }
+.site-nav-title { text-transform: uppercase; letter-spacing: .06em; font-size: .78rem; color: var(--muted); margin: 0 0 14px; }
+.nav-list, .nav-list ul { list-style: none; margin: 0; padding: 0; }
+.nav-list .nav-top { margin: 0 0 4px; }
+.nav-list .nav-top > a { display: block; font-weight: 800; color: var(--ink); text-decoration: none; padding: 9px 0 5px; font-size: 1rem; }
+.nav-list ul { margin: 0 0 10px; padding-left: 12px; border-left: 2px solid #ececec; }
+.nav-list ul a { display: block; color: #555; text-decoration: none; font-size: .9rem; padding: 5px 0; line-height: 1.3; }
+.nav-list .nav-l2 a { padding-left: 12px; color: #777; }
+.nav-list a:hover, .nav-list a:active { color: #1155CC; }
+
 /* --- Website archive quotes (HIHO musta, full-bleed) --- */
 .archivebox {
   background: var(--hiho-musta);
@@ -181,7 +216,6 @@ figure a { display: block; }
 .closing a { color: var(--hiho-gold); font-weight: 700; }
 
 /* --- Instagram-tyylinen kortti (etusivu) --- */
-.ig-intro { max-width: 468px; margin: 4px auto 22px; text-align: center; }
 .ig-post {
   max-width: 468px;
   margin: 0 auto 40px;

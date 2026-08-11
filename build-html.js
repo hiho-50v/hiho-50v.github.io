@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { parseMarkdown, resetToc, getTocEntries } = require('./parse-html');
+const { parseMarkdown, resetToc, getTocEntries, esc } = require('./parse-html');
 
 const CONTENT_DIR = path.join(__dirname, '..', 'hiho50', 'content');
 const OUT_DIR = __dirname;
@@ -35,6 +35,30 @@ for (const f of files) {
 const foreword = chapters.find((c) => c.file === '01-alkusanat.md');
 const tocChapters = chapters.filter((c) => c.file !== '01-alkusanat.md');
 
+// --- Hampurilaisvalikko: päätaso (etusivu + luvut) ja alakohdat (otsikot) ---
+// Jokaisella sivulla sama valikko, jotta sisällössä pääsee liikkumaan mistä tahansa.
+const navSection = (label, href, entries) => {
+  const subs = entries.filter((e) => e.text !== label);
+  const sub = subs.length
+    ? '<ul>' + subs.map((e) => `<li class="nav-l${e.level}"><a href="${href}#${e.id}">${esc(e.text)}</a></li>`).join('') + '</ul>'
+    : '';
+  return `<li class="nav-top"><a href="${href}">${esc(label)}</a>${sub}</li>`;
+};
+const navItems = [
+  navSection('Etusivu', 'index.html', foreword ? foreword.entries : []),
+  ...tocChapters.map((ch) => navSection(ch.title, ch.slug, ch.entries)),
+].join('');
+const navHtml = `
+<input type="checkbox" id="nav-toggle" class="nav-toggle" hidden>
+<label for="nav-toggle" class="nav-burger" aria-label="Avaa valikko"><span></span><span></span><span></span></label>
+<label for="nav-toggle" class="nav-overlay" aria-hidden="true"></label>
+<nav class="site-nav" aria-label="Sisällysnavigaatio">
+  <div class="site-nav-inner">
+    <p class="site-nav-title">Sisällys</p>
+    <ul class="nav-list">${navItems}</ul>
+  </div>
+</nav>`;
+
 const HEAD = (title) => `<!doctype html>
 <html lang="fi">
 <head>
@@ -44,9 +68,15 @@ const HEAD = (title) => `<!doctype html>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+${navHtml}
 <div class="page">
 `;
 const TAIL = `</div>
+<script>
+document.querySelectorAll('.site-nav a').forEach(function (a) {
+  a.addEventListener('click', function () { var t = document.getElementById('nav-toggle'); if (t) t.checked = false; });
+});
+</script>
 </body>
 </html>
 `;
@@ -119,7 +149,6 @@ const indexHtml = HEAD('Etusivu') + `
   <p class="subtitle">Historiikki</p>
   <hr>
 </div>
-<p class="ig-intro">Instagram tuli vasta myöhemmin, mutta tässä postauksia 1970-luvulta:</p>
 ${igCards}
 ${foreword ? foreword.bodyHtml : ''}
 ${tocHtml}
