@@ -92,7 +92,7 @@ const igCards =
     alt: 'Hiki-Hockeyn joukkue Hakametsässä 1979, lainatuissa peliasuissa.',
     count: 130,
     likers: 'ttuominen76',
-    caption: 'Kaudella 1977-1978 Hikiliikkujille 24 voittoa pelatuista 27 pelistä, nousu III-divisioonaan ja korkeakoulujen välinen PM-mestaruus! Suunnitteilla joukkueen nimen muutos Hiki-Hockeyksi kansainväliseen toimintaan paremmin sopivaksi. <span class="ig-tags">#hikiliikkujat #varmatieto</span>',
+    caption: 'Viime kaudella 24 voittoa pelatuista 27 pelistä, nousu III-divisioonaan ja korkeakoulujen välinen PM-mestaruus! Kaudella 1978-1979 tavoitteet yhtä korkealla! Suunnitteilla myös joukkueen nimen muutos Hiki-Hockeyksi kansainväliseen toimintaan paremmin sopivaksi. <span class="ig-tags">#hikiliikkujat #varmatieto</span>',
   }) +
   igCard({
     user: 'Hikiliikkujat Ry',
@@ -119,6 +119,7 @@ const indexHtml = HEAD('Etusivu') + `
   <p class="subtitle">Historiikki</p>
   <hr>
 </div>
+<p class="ig-intro">Instagram tuli vasta myöhemmin, mutta tässä postauksia 1970-luvulta:</p>
 ${igCards}
 ${foreword ? foreword.bodyHtml : ''}
 ${tocHtml}

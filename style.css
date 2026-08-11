@@ -181,6 +181,7 @@ figure a { display: block; }
 .closing a { color: var(--hiho-gold); font-weight: 700; }
 
 /* --- Instagram-tyylinen kortti (etusivu) --- */
+.ig-intro { max-width: 468px; margin: 4px auto 22px; text-align: center; }
 .ig-post {
   max-width: 468px;
   margin: 0 auto 40px;
